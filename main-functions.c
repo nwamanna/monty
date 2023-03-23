@@ -60,6 +60,7 @@ instruct_func select_function(char *str)
 			{"swap", _swap},
 			{"pop", _pop},
 			{"pall", _pall},
+			{"nop", _nop},
 			{NULL, NULL}
 	};
 
