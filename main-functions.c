@@ -61,6 +61,10 @@ instruct_func select_function(char *str)
 			{"pop", _pop},
 			{"pall", _pall},
 			{"nop", _nop},
+			{"sub", _sub},
+			{"mul", _mul},
+			{"div", _div},
+			{"mod", _mod},
 			{NULL, NULL}
 	};
 
@@ -74,7 +78,7 @@ instruct_func select_function(char *str)
 }
 /**
 *line_parser - tokenize the sentence on a line
-*str: the sentense
+*@str: the sentense
 *
 *Return: a word, the opcode command
 */
@@ -91,7 +95,7 @@ char *line_parser(char *str)
 #define BUFFER_SIZE 1024
 /**
 *my_getline - gets character written on a line of a file
-*@lineptr - pointer
+*@lineptr: pointer
 *@n: number of characters
 *@stream: file or source
 *
