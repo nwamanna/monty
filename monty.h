@@ -47,6 +47,7 @@ void _pop(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, __attribute__((unused))unsigned int line_number);
+void _rotl(stack_t **stack, unsigned int line_number);
 char *line_parser(char *str);
 instruct_func select_function(char *str);
 void read_file(char *filename, stack_t **stack);
@@ -56,6 +57,7 @@ void print_element_at_head(stack_t **head, int num);
 void del_node_at_head(stack_t **head);
 stack_t *add_node_at_head(stack_t **head, int n);
 void exit_and_free(stack_t **stack);
+void first_to_last(stack_t **stack);
 size_t my_getline(char **lineptr, size_t *n, FILE *stream);
 int isnumber(char *str);
 #endif

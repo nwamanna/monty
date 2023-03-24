@@ -25,3 +25,8 @@ void _mod(stack_t **stack, unsigned int line_number)
 	_pop(stack, line_number);
 }
 
+void _rotl(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	first_to_last(stack);
+}

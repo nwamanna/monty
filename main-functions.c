@@ -66,6 +66,7 @@ instruct_func select_function(char *str)
 			{"mul", _mul},
 			{"div", _div},
 			{"mod", _mod},
+			{"rotl", _rotl},
 			{NULL, NULL}
 	};
 
