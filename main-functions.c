@@ -34,7 +34,6 @@ void read_file(char *filename, stack_t **stack)
 		s = select_function(command);
 		if (s == NULL)
 		{
-			free(line);
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, command);
 			exit_and_free(stack);
 		}
