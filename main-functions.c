@@ -6,10 +6,10 @@
 *
 *Return: void
 */
+char *line = NULL;
+FILE *file;
 void read_file(char *filename, stack_t **stack)
 {
-	FILE *file;
-	char *line = NULL;
 	size_t len = 0;
 	int n_read;
 	int line_count = 1;
@@ -19,12 +19,13 @@ void read_file(char *filename, stack_t **stack)
 	file = fopen(filename, "r");
 	if (file == NULL)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit_and_free(stack);
 	}
-	while ((n_read = my_getline(&line, &len, file)) != -1)
+	while ((n_read = getline(&line, &len, file)) != -1)
 	{
 		command = line_parser(line);
+
 		if (command == NULL || command[0] == '#')
 		{
 			line_count++;
@@ -33,7 +34,8 @@ void read_file(char *filename, stack_t **stack)
 		s = select_function(command);
 		if (s == NULL)
 		{
-			printf("L%d: unknown instruction %s\n", line_count, command);
+			free(line);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_count, command);
 			exit_and_free(stack);
 		}
 		s(stack, line_count);
@@ -121,13 +123,16 @@ size_t my_getline(char **lineptr, size_t *n, FILE *stream)
 	{
 		if (pos >= *n - 1)
 		{
+			char *new_lineptr;
 			*n += BUFFER_SIZE;
-			*lineptr = (char *)realloc(*lineptr, *n);
+			new_lineptr = (char *)realloc(*lineptr, *n);
 
-			if (*lineptr == NULL)
+			if (new_lineptr == NULL)
 			{
+				free(*lineptr);
 				return (-1);
 			}
+			*lineptr = new_lineptr;
 		}
 		(*lineptr)[pos++] = (char)c;
 	}
@@ -164,4 +169,3 @@ int isnumber(char *str)
 	}
 	return (1);
 }
-

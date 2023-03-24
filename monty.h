@@ -4,6 +4,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+extern char *line;
+extern FILE *file;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

@@ -8,23 +8,22 @@
 */
 void _push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
 	char *arg;
 	int value;
 
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
+	arg = strtok(NULL, "\n ");
+	if (arg == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit_and_free(stack);
 	}
-	arg = strtok(NULL, "\n ");
-	if (isnumber(arg) == 1 && arg == NULL)
+	if (isnumber(arg) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit_and_free(stack);
 	}
 	value = atoi(arg);
+
 	add_node_at_head(stack, value);
 }
 

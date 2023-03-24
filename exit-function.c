@@ -7,7 +7,11 @@
 */
 void exit_and_free(stack_t **stack)
 {
-	if (stack)
+	if (line)
+		free(line);
+	if (file)
+		fclose(file);
+	if (*stack != NULL)
 		free_dlinked_list(*stack);
 	exit(EXIT_FAILURE);
 }

@@ -12,8 +12,9 @@ stack_t *add_node_at_head(stack_t **head, int n)
 
 	if (new == NULL)
 	{
-		printf("Could not malloc");
-		return (NULL);
+		fprintf(stderr, "Error: malloc failed\n");
+		free(new);
+		exit_and_free(head);
 	}
 	new->n = n;
 	if (*head == NULL)
