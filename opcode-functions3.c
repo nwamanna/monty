@@ -36,3 +36,15 @@ void _rotl(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	first_to_last(stack);
 }
+/**
+*_pchar- print first letter in a stack
+*@stack: pointer to pointer of double linked list
+*@line_number: number to be added to stack
+*
+*Return: void
+*/
+void _pchar(stack_t **stack, unsigned int line_number)
+{
+	print_letter_at_head(stack, line_number);
+}
+

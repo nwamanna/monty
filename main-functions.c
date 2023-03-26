@@ -67,6 +67,7 @@ instruct_func select_function(char *str)
 			{"div", _div},
 			{"mod", _mod},
 			{"rotl", _rotl},
+			{"pchar", _pchar},
 			{NULL, NULL}
 	};
 

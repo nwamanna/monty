@@ -110,17 +110,3 @@ void free_dlinked_list(stack_t *head)
 		head = temp;
 	}
 }
-void first_to_last(stack_t **head)
-{
-	stack_t *temp = *head;
-	stack_t *temp2 = *head;
-
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
-	*head = (*head)->next;
-	temp2->next = NULL;
-	temp->next = temp2;
-	temp2->prev = temp;
-}
