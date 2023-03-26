@@ -57,7 +57,7 @@ void print_element_at_head(stack_t **head, int num);
 void del_node_at_head(stack_t **head);
 stack_t *add_node_at_head(stack_t **head, int n);
 void exit_and_free(stack_t **stack);
-void first_to_last(stack_t **stack);
+stack_t *first_to_last(stack_t **stack);
 size_t my_getline(char **lineptr, size_t *n, FILE *stream);
 int isnumber(char *str);
 #endif

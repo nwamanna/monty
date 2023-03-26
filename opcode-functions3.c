@@ -2,7 +2,7 @@
 /**
 *_mod- mod d 1st 2 elemnts of a stack stores d result in d 2nd elemnt, del 1st
 *@stack: pointer to pointer of double linked list
-*@line_number: number to be added to stack
+*@line_number: number of line command is on
 *
 *Return: void
 */
@@ -24,7 +24,13 @@ void _mod(stack_t **stack, unsigned int line_number)
 	*stack = temp;
 	_pop(stack, line_number);
 }
-
+/**
+*_rotl - moves the first element to the last positon
+*@stack: pointer to pointer of double linked list
+*@line_number: number of line command is on
+*
+*Return: void
+*/
 void _rotl(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
